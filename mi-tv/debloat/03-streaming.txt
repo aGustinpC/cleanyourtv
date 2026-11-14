@@ -1,0 +1,8 @@
+# Hisense SmartTV 4K FFM (wutaishan), Google TV 14, UKN6.251123.001.049. Base: examples/hisense-u7-wutaishan.
+# Undo: tools\restore.ps1 -TvHost <tv> <this file>
+# Se conservan: Netflix, Prime Video, YouTube, Twitch, Disney+, Crunchyroll, Spotify, Max, Apple TV
+com.cbs.ca                                   # Paramount+
+com.tubitv                                   # Tubi
+com.univision.prendetv                       # PrendeTV
+com.google.android.youtube.tvmusic           # YouTube Music
+com.google.android.play.games                # Google Play Juegos

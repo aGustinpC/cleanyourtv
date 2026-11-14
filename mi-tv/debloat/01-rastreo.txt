@@ -1,0 +1,7 @@
+# Hisense SmartTV 4K FFM (wutaishan), Google TV 14, UKN6.251123.001.049. Base: examples/hisense-u7-wutaishan.
+# Undo: tools\restore.ps1 -TvHost <tv> <this file>
+com.vt.tv.evservice                          # Vtp_ACR, reconocimiento de contenido (lo que ves)
+com.google.android.partnersetup              # rastreo de socios de Google
+android.autoinstalls.config.google.gtvpai    # autoinstalaciones de socios (PAI)
+com.google.android.feedback                  # envío de errores/feedback
+com.google.android.syncadapters.calendar     # sincronización de calendario, sin uso en TV

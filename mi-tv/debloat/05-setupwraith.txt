@@ -1,0 +1,7 @@
+# Hisense SmartTV 4K FFM (wutaishan), Google TV 14, UKN6.251123.001.049.
+# Asistente de configuración de Google TV: reclama Home por encima del launcher nuevo, así que tiene que irse.
+# Sin él deja de funcionar el AirPlay nativo del TV.
+# OJO: si la red Wi-Fi se guardó durante la primera configuración, le pertenece a él y Android la borra al
+# desactivarlo (el TV se queda sin Wi-Fi ni ADB). Antes: Ajustes > Red > olvidar la red y volver a unirse, y comprobar
+# que `dumpsys wifi | grep -o 'cname=[^ ]*'` dice android.uid.system:1000.
+com.google.android.tungsten.setupwraith

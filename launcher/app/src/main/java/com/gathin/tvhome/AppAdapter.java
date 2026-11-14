@@ -1,6 +1,7 @@
 package com.gathin.tvhome;
 
 import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;
@@ -202,6 +203,8 @@ public class AppAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private final Set<String> libraryPreload;
     private final boolean animations;
     private final boolean advancedEffects;
+    /** Apps grow out of their tile when opened (config.xml, app_open_zoom); needs advanced_effects. */
+    private final boolean appOpenZoom;
     private final boolean showLibrary;
     /** Packages with a leanback entry at the last reload(): their tiles launch with the leanback category. */
     private Set<String> leanbackPackages = new HashSet<>();
@@ -232,6 +235,7 @@ public class AppAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         this.libraryPreload = new HashSet<>(cfg.libraryApps);
         this.animations = cfg.animations;
         this.advancedEffects = cfg.animations && cfg.advancedEffects;
+        this.appOpenZoom = this.advancedEffects && cfg.appOpenZoom;
         this.showHomeSettings = cfg.showHomeSettingsShortcut;
         this.showLibrary = LibraryApps.showPill(cfg.appLibrary, cfg.libraryButton, cfg.showLibraryPill);
         this.reducedMotion = cfg.reducedMotion;
@@ -509,7 +513,7 @@ public class AppAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             h.label.setText(e.label);
             h.label.setVisibility(uniformTiles ? View.GONE : View.VISIBLE);
         }
-        h.card.setOnClickListener(v -> launch(e));
+        h.card.setOnClickListener(v -> launch(e, v));
         h.card.setOnLongClickListener(v -> {
             if (tileMenu) {
                 int pos = h.getBindingAdapterPosition();
@@ -526,9 +530,12 @@ public class AppAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         });
     }
 
-    /** Opens the tile's activity by explicit component, with no extras: a card can name nothing else. */
+    /**
+     * Opens the tile's activity by explicit component, with no extras: a card can name nothing else. With
+     * app_open_zoom the app's window grows out of the tile it was opened from.
+     */
     @SuppressWarnings("deprecation")
-    private void launch(Entry e) {
+    private void launch(Entry e, View from) {
         if (e.kind == Entry.HOME_SETTINGS) {
             ctx.startActivity(new Intent(ctx, HomeSettingsActivity.class)
                     .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
@@ -553,11 +560,16 @@ public class AppAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             if (ctx.getPackageManager().resolveActivity(byAction, 0) != null) i = byAction;
         }
         try {
-            ctx.startActivity(i);
-            if (cinematic) LastOpened.record(ctx, e.pkg);
-            if (advancedEffects && !reducedMotion && ctx instanceof Activity) {
-                ((Activity) ctx).overridePendingTransition(R.anim.app_open_enter, R.anim.app_open_exit);
+            if (appOpenZoom && !reducedMotion && from.getWidth() > 0) {
+                ctx.startActivity(i, ActivityOptions.makeScaleUpAnimation(from, 0, 0, from.getWidth(),
+                        from.getHeight()).toBundle());
+            } else {
+                ctx.startActivity(i);
+                if (advancedEffects && !reducedMotion && ctx instanceof Activity) {
+                    ((Activity) ctx).overridePendingTransition(R.anim.app_open_enter, R.anim.app_open_exit);
+                }
             }
+            if (cinematic) LastOpened.record(ctx, e.pkg);
         } catch (Exception ex) {
             Toast.makeText(ctx, ctx.getString(R.string.cant_open, e.label), Toast.LENGTH_SHORT).show();
         }

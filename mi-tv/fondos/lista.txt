@@ -1,0 +1,26 @@
+# Fondos en blanco y negro del Steam Workshop de Wallpaper Engine (app 431960) usados en el tema.
+# No se publican aquí: son obras de sus autores. Suscríbete a ellos en Steam y ejecuta sacar-fondos.ps1.
+# id          tipo    título
+1134328086    video   Wise Wolf
+1345100339    video   Noire night
+3400988918    video   Anime Girl with light blue eyes
+1451642975    escena  OldMan Samurai
+1779710880    escena  Knight
+2350336015    escena  Shikamaru negro
+2360778075    escena  Levi Attack on Titan [4K]
+2731149176    escena  Dual samurai
+3296083353    escena  Anime girl 4K (BLACK)
+3330474112    escena  Yomu Yakadashi 16:9 v2 4k Animated
+3376170815    escena  anime-girl-saint-4K
+3413889558    escena  YessirSupra Girl Black/White
+3413909906    escena  YessirSupra Girl Black/White
+3414145634    escena  YessirSupra Girl Black/White
+3414151430    escena  YessirSupra Girl Black/White
+3414157543    escena  YessirSupra Girl Black/White
+3414163476    escena  YessirSupra Girl Black/White
+3414175504    escena  YessirSupra Girl Black/White
+3414182212    escena  YessirSupra Girl Black/White
+3435755867    escena  Yami no Megami
+3561355864    escena  sword-white-perseu
+3713117916    escena  Shiro Bloom - AirGlide
+932977903     escena  Black Waves

@@ -1,0 +1,8 @@
+# Hisense SmartTV 4K FFM (wutaishan), Google TV 14, UKN6.251123.001.049. Base: examples/hisense-u7-wutaishan.
+# Undo: tools\restore.ps1 -TvHost <tv> <this file>
+# Se conservan las actualizaciones OTA (com.vt.tv.ota, com.vt.remoteupgrade, com.vt.tv.usbota)
+# com.google.android.katniss                 # Google Assistant: el firmware lo reactiva en cada arranque (2 reinicios), no sirve
+com.android.hotwordenrollment.okgoogle       # "Ok Google"
+com.android.hotwordenrollment.xgoogle        # "Hey Google"
+com.google.android.apps.mediashell           # Chromecast
+com.vt.tv.mobiledeviceconnectiontips         # duplicar pantalla (Miracast)

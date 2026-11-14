@@ -1,0 +1,13 @@
+# Hisense SmartTV 4K FFM (wutaishan), Google TV 14, UKN6.251123.001.049. Base: examples/hisense-u7-wutaishan.
+# Undo: tools\restore.ps1 -TvHost <tv> <this file>
+com.vidaa.oemtabcontentprovider              # pestaña Hisense en el inicio de Google TV
+net.vidaatv.hisense.android.tv               # VIDAA Channels+
+com.vt.hishow                                # Family Moment
+com.vt.storemode                             # modo tienda
+com.vt.tv.b2b                                # modo hotel/empresa
+com.vt.fte                                   # ganchos del asistente de primera configuración
+com.vt.tv.protector                          # DeviceAssistant, "limpiador"
+com.vt.alexa                                 # HiAlexa
+com.vt.tv.dlna                               # receptor DLNA
+com.vt.tv.ai_sense                           # cámara IA USB
+com.hisense.odinbrowser                      # navegador Hisense

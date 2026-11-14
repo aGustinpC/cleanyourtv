@@ -508,6 +508,12 @@
          for wallpapers and banners that clash with it; app_glow still colours every tile. Can also be set with
          "cinematic_white_focus": true in a theme's config.json. -->
     <bool name="cinematic_white_focus">false</bool>
+    <!-- With cinematic_home, the app's name in wide heavy type in the app's main colour (read from its artwork)
+         instead of plain white text. Off by default; a theme can set "hero_title_art": true. -->
+    <bool name="hero_title_art">false</bool>
+    <!-- With advanced_effects, an app opens by growing out of its tile until it fills the screen, as on macOS,
+         instead of the short fade. Off by default; a theme can set "app_open_zoom": true. -->
+    <bool name="app_open_zoom">false</bool>
     <!-- With cinematic_home, how much of a wallpaper the shelf covers: cinematic_scrim is the strength of the dark
          scrim that keeps the name readable (0 to 100 percent, 100 as before) and cinematic_art the opacity of the
          app's softened artwork (0 to 100, 50 as before; 0 leaves the wallpaper uncovered). Lower values let a

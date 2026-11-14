@@ -163,6 +163,8 @@ public class MainActivity extends Activity implements AppAdapter.TileListener {
     private String glowStyle;
     /** config.xml cinematic_white_focus: the cinematic shelf keeps the white highlight. */
     private boolean cinematicWhiteFocus;
+    /** config.xml hero_title_art: the cinematic shelf's name in heavy type, in the app's main colour. */
+    private boolean heroTitleArt;
     private ImageView heroArt;
     /** config.xml cinematic_dots: false leaves the dock position dots out of the cinematic shelf. */
     private boolean heroDotsShown = true;
@@ -538,6 +540,7 @@ public class MainActivity extends Activity implements AppAdapter.TileListener {
         glowStyle = cfg.glowStyle;
         heroDotsShown = cfg.cinematicDots;
         cinematicWhiteFocus = cfg.cinematicWhiteFocus;
+        heroTitleArt = cfg.heroTitleArt;
         heroArtAlpha = cfg.cinematicArt / 100f;
         if (cinematic) setUpCinematicShelf(cfg.cinematicScrim);
         // dock_title false: the name above the dock (and the cinematic lines under it) never shows; the glow
@@ -1996,6 +1999,7 @@ public class MainActivity extends Activity implements AppAdapter.TileListener {
     private void fillHero(int position, String label) {
         heroName.setText(label);
         if (!cinematic) return;
+        if (heroTitleArt) paintHeroName(position, label);
         updateHeroMeta(position);
         updateHeroDots(position);
     }
@@ -2009,6 +2013,13 @@ public class MainActivity extends Activity implements AppAdapter.TileListener {
     private void setUpCinematicShelf(int scrimPercent) {
         heroName.setTextSize(TypedValue.COMPLEX_UNIT_SP, 68f);
         heroName.setLetterSpacing(-0.025f);
+        if (heroTitleArt) {
+            // The UI font is a variable font: the same file at its heaviest weight, wide enough to carry the colour.
+            heroName.setTypeface(getResources().getFont(R.font.spacegrotesk));
+            heroName.setFontVariationSettings("'wght' 700");
+            heroName.setTextSize(TypedValue.COMPLEX_UNIT_SP, 120f);
+            heroName.setLetterSpacing(-0.01f);
+        }
         heroMeta.setVisibility(View.INVISIBLE);   // keeps its height, so the name does not jump when it fills in
         heroDots.setVisibility(heroDotsShown ? View.VISIBLE : View.GONE);
         heroArt.setVisibility(heroArtAlpha > 0f ? View.VISIBLE : View.GONE);
@@ -2070,6 +2081,14 @@ public class MainActivity extends Activity implements AppAdapter.TileListener {
             heroArt.setImageBitmap(next);
             heroArt.animate().alpha(heroArtAlpha).setDuration(420).start();
         }).start();
+    }
+
+    /**
+     * hero_title_art: the name in the app's main colour, read from its artwork. The wallpaper stays as it is;
+     * only the letters take the app's colour.
+     */
+    private void paintHeroName(int position, String label) {
+        heroName.setTextColor(AppColours.main(adapter.artworkAt(position)));
     }
 
     private void fadeHeroArt(int ms) {
