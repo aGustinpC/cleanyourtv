@@ -1,5 +1,9 @@
 # AGENTS.md
 
+> **This fork:** if the person asks to replicate the Hisense configuration in `mi-tv/` (or says "sigue
+> `mi-tv/PROMPT.md`"), follow [`mi-tv/PROMPT.md`](mi-tv/PROMPT.md); its safety steps come from `PROMPT.md` below,
+> which still wins. Talk to that person in Spanish.
+
 Instructions for coding agents (Claude Code, Codex, Gemini CLI, Cursor, Copilot, DeepSeek Harness and
 others) working in this repository. People should start with [README.md](README.md) and
 [CONTRIBUTING.md](CONTRIBUTING.md); this file repeats their rules in the form an agent needs, and links

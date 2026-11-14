@@ -2,6 +2,11 @@
   <a href="https://cleanyour.tv"><img src="https://raw.githubusercontent.com/Gathin23/cleanyourtv/main/docs/banner.png" alt="CleanYourTV. Your TV, minus the ads. Strip the bloatware from any Android TV or Google TV over Wi-Fi and replace the ad-filled home screen with a clean launcher that looks like an Apple TV. No root, no cable, nothing uninstalled, and a one-line restore." width="800"></a>
 </p>
 
+> **Este fork incluye una configuración completa para un Hisense "SmartTV 4K FFM" (`wutaishan`, Google TV 14):**
+> limpieza, inicio estilo Apple TV con el nombre de cada app en su color, animación al abrir apps, fuente Space
+> Grotesk y fondos en blanco y negro. Todo está en [`mi-tv/`](mi-tv/README.md). Para replicarlo con una IA, clona
+> el repo y dile: *"Sigue `mi-tv/PROMPT.md`"* ([instrucciones](mi-tv/PROMPT.md)).
+
 <p align="center">
   Read in: <a href="README.he.md" lang="he" dir="rtl">עברית</a> · <a href="README.zh-CN.md">简体中文</a> · <a href="README.zh-TW.md">正體中文</a> · <a href="README.vi.md">Tiếng Việt</a> · <a href="README.ja.md">日本語</a> · <a href="README.it.md">Italiano</a> · <a href="README.pt-BR.md">Português</a> · <a href="README.nl.md">Nederlands</a> · <a href="README.de.md">Deutsch</a> · <a href="README.uk.md">Українська</a> · <a href="README.tr.md">Türkçe</a> · <a href="README.uz.md">Oʻzbekcha</a> · <a href="README.fr.md">Français</a> · <a href="README.es.md">Español</a>
 </p>

@@ -5,6 +5,13 @@ firmware `UKN6.251123.001.049`), hecha con [cleanyourtv](https://github.com/Gath
 fork: todo el proyecto original está intacto, y lo propio está en esta carpeta `mi-tv/` y en unos cambios al
 launcher (abajo).
 
+![Inicio con YouTube enfocado: su nombre en grande y en rojo sobre el fondo de estrellas](capturas/inicio-youtube.jpg)
+![Inicio con Spotify enfocado: su nombre en verde; la fila de apps se desplazó a la derecha](capturas/inicio-spotify.jpg)
+
+*Capturas del TV. Fondo: "Noire night", del Steam Workshop de Wallpaper Engine.*
+
+**¿Quieres lo mismo en tu TV con una IA?** Sigue [`PROMPT.md`](PROMPT.md).
+
 La base es [`examples/hisense-u7-wutaishan`](../examples/hisense-u7-wutaishan/), que es la misma placa y el mismo
 firmware. **Nada se desinstala**: todo se desactiva y se puede volver atrás.
 
